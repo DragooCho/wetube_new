@@ -1,10 +1,12 @@
 const path = require("path");
-//path로 컴퓨터나 서버에서 전체경로를 갖게됨
-const ExtractCSS = require("extract-text-webpack-plugin");
+
+// const ExtractCSS = require("extract-text-webpack-plugin");
+const MiniExtractCSS = require("mini-css-extract-plugin");
+const autoprefixer = require("autoprefixer");
 
 const MODE = process.env.WEBPACK_ENV;
 const ENTRY_FILE = path.resolve(__dirname, "assets", "js", "main.js");
-const OUTPUT_DIR = path.join(__dirname, "static");
+const OUTPUT_DIR = path.resolve(__dirname, "static");
 
 const config = {
   entry: ENTRY_FILE,
@@ -12,25 +14,42 @@ const config = {
   module: {
     rules: [
       {
-        test: /\. (scss)$/,
-        use: ExtractCSS.extract([
+        test: /\.scss$/,
+        use: [
           {
-            loader: "css-loder", // webpack이 css를 이해시켜줌
+            loader: MiniExtractCSS.loader,
+            options: {
+              hmr: process.env.WEBPACK_ENV === "development",
+            },
           },
+          "css-loader",
           {
-            loader: "postcss-loader", //일반css의 호환성를 해결해줌( ex)IE 호환가능 )
+            loader: "postcss-loader",
+            options: {
+              plugins() {
+                return [
+                  autoprefixer({
+                    overrideBrowserslist: "cover 99.5%",
+                  }),
+                ];
+              },
+            },
           },
-          {
-            loader: "scss-loder", // scss를  일반css로 바꿈
-          },
-        ]),
+
+          "sass-loader",
+        ],
       },
     ],
   },
   output: {
     path: OUTPUT_DIR,
-    filename: "[name].[format]",
+    filename: "[name].js",
   },
+  plugins: [
+    new MiniExtractCSS({
+      filename: "styles.css",
+    }),
+  ],
 };
 
 module.exports = config;
