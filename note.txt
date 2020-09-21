@@ -1,0 +1,29 @@
+
+"cross-env WEBPACK_ENV=development webpack -w"
+//webpack -w  파일을 지켜보다가 만약 변화가 생기면 webpack을 재실행
+
+
+
+
+오류의 이유 
+main.js:11 Uncaught ReferenceError: regeneratorRuntime is not defined
+    at eval (main.js:11)
+    at eval (main.js:29)
+    at Module../assets/js/main.js (main.js:97)
+    at __webpack_require__ (main.js:20)
+    at main.js:84
+    at main.js:87
+구글크롬이 async를 처리할지 몰라서
+
+
+
+
+터미널에 
+'git rm --cached (깃허브에 안올릴 파일 또는 폴더이름)'
+을 실행하면 커밋을 막을수 있다.
+
+이것이 안통하면 뒤에 '-r' 을 붙이면된다
+ex) 'git rm --cached (깃허브에 안올릴 파일 또는 폴더이름) -r'
+ 
+
+

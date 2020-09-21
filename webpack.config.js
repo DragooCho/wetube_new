@@ -9,10 +9,18 @@ const ENTRY_FILE = path.resolve(__dirname, "assets", "js", "main.js");
 const OUTPUT_DIR = path.resolve(__dirname, "static");
 
 const config = {
-  entry: ENTRY_FILE,
+  entry: ["@babel/polyfill", ENTRY_FILE],
   mode: MODE,
   module: {
     rules: [
+      {
+        test: /\.(js)$/,
+        use: [
+          {
+            loader: "babel-loader",
+          },
+        ],
+      },
       {
         test: /\.scss$/,
         use: [
@@ -29,13 +37,12 @@ const config = {
               plugins() {
                 return [
                   autoprefixer({
-                    overrideBrowserslist: "cover 99.5%",
+                    browsers: "cover 99.5%",
                   }),
                 ];
               },
             },
           },
-
           "sass-loader",
         ],
       },
