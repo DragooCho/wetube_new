@@ -1,8 +1,13 @@
+import dotenv from "dotenv";
 import "./db";
 import app from "./app";
-import dotenv from "dotenv";
+// 위의 import 코드는 순서가 중요하다.
+
 dotenv.config();
+
 import "./models/Video";
+import "./models/Comment";
+import "./models/User";
 
 const PORT = process.env.PORT || 4000;
 
