@@ -29,12 +29,15 @@ ex) 'git rm --cached (깃허브에 안올릴 파일 또는 폴더이름) -r'
 
 
 
-터미널에
+터미널에 'mongo'와 npm run dev:server 를 모두 실행한 후
+
 db.users.find({})
 을 실행하면 가입한 유저의 ObjectId, 이름, 이메일의 정보를 볼 수있다.
-반대로 그렇게 생성된 유저 지울려면
- db.users.remove({})
- 을 실행하면 지울수있다.
+
+반대로 그렇게 생성된 유저 지울때
+
+db.users.remove({})
+을 실행하면 지울수있다.
 
 
 
@@ -51,7 +54,6 @@ const user = new User ({name, email});
 await 때문인가요?
 
 serranoarevalo 2 개월 전
-
 사용자 ({이름, 이메일}); 객체를 만드는 것입니다. 나중에 등록하거나 생성 할 때 passport-local-mongoose를 사용할 것입니다.
  
 
