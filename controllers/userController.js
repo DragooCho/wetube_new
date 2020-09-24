@@ -2,11 +2,11 @@ import passport from "passport";
 import routes from "../routes";
 import User from "../models/User";
 
-export const getJoin = (req, res, next) => {
+export const getJoin = (req, res) => {
   res.render("join", { pageTitle: "Join" });
 };
 
-export const postJoin = async (req, res) => {
+export const postJoin = async (req, res, next) => {
   const {
     body: { name, email, password, password2 },
   } = req;
