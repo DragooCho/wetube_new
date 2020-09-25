@@ -11,6 +11,7 @@ const USERS = "/users";
 const USER_DETAIL = "/:id";
 const EDIT_PROFILE = "/edit-profile";
 const CHANGE_PASSWORD = "/change-password";
+const ME = "/me";
 
 // Videos
 
@@ -21,6 +22,12 @@ const EDIT_VIDEO = "/:id/edit";
 const DELETE_VIDEO = "/:id/delete";
 // controller에서 어떤 data를 가지고 있다는 것을 표현하고 싶을때 ':'과 이름을 넣는다.
 //URL로부터 정보를 가져오는 유일한 방법
+
+// Github
+
+const GITHUB = "/auth/github";
+const GITHUB_CALLBACK = "/auth/github/callback";
+
 const routes = {
   home: HOME,
   join: JOIN,
@@ -60,6 +67,9 @@ const routes = {
       return DELETE_VIDEO;
     }
   },
+  gitHub: GITHUB,
+  githubCallback: GITHUB_CALLBACK,
+  me: ME,
 };
 
 export default routes;
