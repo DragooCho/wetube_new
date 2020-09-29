@@ -133,12 +133,30 @@ export const postEditProfile = async (req, res) => {
     });
     res.redirect(routes.me);
   } catch (error) {
-    res.render("editProflie", { pageTitle: "Edit Profile" });
+    res.redirect(routes.editProflie);
   }
 };
 
-export const changePassword = (req, res) =>
+export const getChangePassword = (req, res) =>
   res.render("changePassword", { pageTitle: "Change Password" });
 
+export const postChangePassword = async (req, res) => {
+  const {
+    body: { oldPassword, newPassword, newPassword1 },
+  } = req;
+  try {
+    if (newPassword !== newPassword1) {
+      res.status(400);
+      res.redirect(`/users/${routes.changePassword}`);
+      return;
+    }
+    await req.user.changePassword(oldPassword, newPassword);
+    res.redirect(routes.me);
+  } catch (error) {
+    res.status(400);
+    res.redirect(`/users/${routes.changePassword}`);
+  }
+};
 //async (accessToken, refreshToken, profile, cb)에서
 //cb함수는 passport에서 제공된 callback함수
+// async (req, res) 와 try {await xxxx}는 비동기를 구축한다.
