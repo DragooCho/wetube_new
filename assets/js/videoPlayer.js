@@ -1,17 +1,31 @@
 const videoContainer = document.getElementById("jsVideoPlayer");
 const videoPlayer = document.querySelector("#jsVideoPlayer video");
 const playBtn = document.getElementById("jsPlayButton");
+const volumeBtn = document.getElementById("jsVolumeBtn");
 
-function handlePlayClick() {
+const handlePlayClick = () => {
   if (videoPlayer.paused) {
     videoPlayer.play();
+    playBtn.innerHTML = '<i class="fas fa-pause"></i>';
   } else {
     videoPlayer.pause();
+    playBtn.innerHTML = '<i class="fas fa-play"></i>';
+  }
+};
+
+function handleVolumeClick() {
+  if (videoPlayer.muted) {
+    videoPlayer.muted = false;
+    volumeBtn.innerHTML = '<i class="fas fa-volume-up"></i>';
+  } else {
+    videoPlayer.muted = true;
+    volumeBtn.innerHTML = '<i class="fas fa-volume-mute"></i>';
   }
 }
 
 function init() {
   playBtn.addEventListener("click", handlePlayClick);
+  volumeBtn.addEventListener("click", handleVolumeClick);
 }
 
 if (videoContainer) {
@@ -20,3 +34,6 @@ if (videoContainer) {
 
 // 예로 들어 여기서 HTMLMediaElement.play() 를 활용할려면
 // videoPlayer.play()를 써야함
+
+// HTMLMediaElement MDN 항목에서 Read only가 붙은게 아니면
+// 덧쓰기가 가능하게된다.
