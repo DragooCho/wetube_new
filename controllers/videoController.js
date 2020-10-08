@@ -115,7 +115,27 @@ export const deleteVideo = async (req, res) => {
   res.redirect(routes.home);
 };
 
+//Register Video View
+
+export const postRegisterView = async (req, res) => {
+  const {
+    params: { id },
+  } = req;
+  try {
+    const video = await Video.findById(id);
+    video.views += 1;
+    video.save();
+    res.status(200);
+  } catch (error) {
+    res.status(400);
+  } finally {
+    res.end();
+  }
+};
+
 // get은 뭔가를 채워넣는 작업이고 post는 업데이트하고 redirect하는 작업이다.
+
 // "export const xxxx = (req, res) =>" 에서
 // 로그인하는 동안은 req라는 객체에 user가 있다. passport 모듈이 그렇게 만들어준다.
+
 // populate()는 객체를 대려오는 함수

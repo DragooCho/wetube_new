@@ -20,8 +20,6 @@ const UPLOAD = "/upload";
 const VIDEO_DETAIL = "/:id";
 const EDIT_VIDEO = "/:id/edit";
 const DELETE_VIDEO = "/:id/delete";
-// controller에서 어떤 data를 가지고 있다는 것을 표현하고 싶을때 ':'과 이름을 넣는다.
-//URL로부터 정보를 가져오는 유일한 방법
 
 // Github
 
@@ -32,6 +30,11 @@ const GITHUB_CALLBACK = "/auth/github/callback";
 
 const FB = "/auth/facebook";
 const FB_CALLBACK = "/auth/facebook/callback";
+
+//API
+
+const API = "/api";
+const REGISTER_VIEW = "/:id/view";
 
 const routes = {
   home: HOME,
@@ -77,6 +80,11 @@ const routes = {
   me: ME,
   facebook: FB,
   facebookCallback: FB_CALLBACK,
+  api: API,
+  registerView: REGISTER_VIEW,
 };
 
 export default routes;
+
+// controller에서 어떤 data를 가지고 있다는 것을 표현하고 싶을때 ':'과 이름을 넣는다.
+//URL로부터 정보를 가져오는 유일한 방법
