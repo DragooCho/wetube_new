@@ -4,6 +4,7 @@ const addCommentForm = document.getElementById("jsAddComment");
 const commentList = document.getElementById("jsCommentList");
 const commentNumber = document.getElementById("jsCommentNumber");
 const deleteCommentBtn = document.querySelector(".deleteCommentBtn");
+// const commentsList = document.querySelector(".commentsList");
 
 const increaseNumber = () => {
   commentNumber.innerHTML = parseInt(commentNumber.innerHTML, 10) + 1;
@@ -12,6 +13,7 @@ const increaseNumber = () => {
 const addComment = (comment) => {
   const li = document.createElement("li");
   const span = document.createElement("span");
+  // commentsList.innerHTML = `video.name`;
   span.innerHTML = comment;
   li.appendChild(span);
   commentList.prepend(li); //prepend는 노드를 첫번째로 생성하게 해준다.

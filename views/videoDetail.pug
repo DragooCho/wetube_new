@@ -34,7 +34,7 @@ block content
                 each comment in video.comments.reverse()
                     li.commentsList
                         span=comment.text 
-                        if video.creator.id === loggedUser.id
+                        //- if loggedUser && video.creator.id === loggedUser.id
                             button
                                 .deleteCommentBtn#jsDeleteComment ❌
                         //- reverse()는 Arrays methods중의 하나로,
