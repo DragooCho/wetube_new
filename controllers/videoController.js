@@ -159,6 +159,22 @@ export const postAddComment = async (req, res) => {
   }
 };
 
+// Delete Comment eraseComment
+
+// export const eraseComment = async (req, res) => {
+//   const {
+//     params: { id },
+//   } = req;
+//   try {
+//     const video = await Video.findById(id)
+//       .populate("creator")
+//       .populate("comments");
+//     res.render("eraseComment", { pageTitle: video.title, video });
+//   } catch (error) {
+//     res.redirect(routes.home);
+//   }
+// };
+
 // get은 뭔가를 채워넣는 작업이고 post는 업데이트하고 redirect하는 작업이다.
 
 // "export const xxxx = (req, res) =>" 에서
