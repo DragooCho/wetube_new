@@ -33,6 +33,7 @@ block content
             ul.video__comments-list#jsCommentList
                 each comment in video.comments.reverse()
                     li.commentsList
+                        //- div.loggedUser__id 
                         span=comment.text
                         if loggedUser && video.creator.id === loggedUser.id
                             button

@@ -12,8 +12,9 @@ const increaseNumber = () => {
 
 const addComment = (comment) => {
   const li = document.createElement("li");
+  // const div = commentList.createElement("div");
   const span = document.createElement("span");
-  // commentsList.innerHTML = `video.name`;
+  // div.innerHTML = "loggedUser.id";
   span.innerHTML = comment;
   li.appendChild(span);
   commentList.prepend(li); //prepend는 노드를 첫번째로 생성하게 해준다.
