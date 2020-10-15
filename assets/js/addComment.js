@@ -43,13 +43,20 @@ const handleSubmit = (event) => {
   commentInput.value = "";
 };
 
-//Delete Comment
+//Delete Comment Area
+
+const decreaseNumber = () => {
+  commentNumber.innerHTML = parseInt(commentNumber.innerHTML, 10) - 1;
+};
 
 const handleClick = (event) => {
   event.preventDefault();
   const deleteComment = document.querySelector(".commentsList");
   commentList.removeChild(deleteComment);
+  decreaseNumber();
 };
+
+/////////////////////////////////////////////////////////
 
 function init() {
   addCommentForm.addEventListener("submit", handleSubmit);
