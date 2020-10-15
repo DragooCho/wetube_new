@@ -161,39 +161,25 @@ export const postAddComment = async (req, res) => {
 
 // Delete Comment
 
-export const postSpliceComment = async (req, res) => {
-  const {
-    params: { id },
-    body: { comment },
-    user,
-  } = req;
-  try {
-    const video = await Video.findById(id);
-    const newComment = await Comment.create({
-      text: comment,
-      creator: user.id,
-    });
-    video.comments.splice(newComment.id);
-    video.save();
-  } catch (error) {
-    res.status(400);
-  } finally {
-    res.end();
-  }
-};
-
-// post Comment
-
-// export const postComment = async (req, res) => {
+// export const postSpliceComment = async (req, res) => {
 //   const {
-//     body: { title, description }
+//     params: { id },
+//     body: { comment },
+//     user,
 //   } = req;
-//   const newComment = await Comment.create({
-//     creator: req.user.id,
-//   });
-//   req.user.videos.push(newComment.id);
-//   req.user.save();
-//   res.redirect(routes.videoDetail(newComment.id));
+//   try {
+//     const video = await Video.findById(id);
+//     const newComment = await Comment.create({
+//       text: comment,
+//       creator: user.id,
+//     });
+//     video.comments.splice(newComment.id);
+//     video.save();
+//   } catch (error) {
+//     res.status(400);
+//   } finally {
+//     res.end();
+//   }
 // };
 
 // get은 뭔가를 채워넣는 작업이고 post는 업데이트하고 redirect하는 작업이다.
