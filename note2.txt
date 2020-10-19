@@ -1,0 +1,17 @@
+#6.8까지의 흐름
+
+-> github website (auth)
+github website (auth) -> /auth/github/callback
+githubLoginCallback (profile)
+       => cb(null, user)
+
+       cookie = makeCookie(user)
+       saveCookie = saveCookie(cookie)
+       sendCookie(saveCookie)
+
+
+
+
+#6.10 User Detail + Facebook Login Part One (13:07)
+rkddml dlgnsms
+ngrok 다운로드와 실행방법을 알아보자
