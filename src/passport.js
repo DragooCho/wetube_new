@@ -15,7 +15,9 @@ passport.use(
     {
       clientID: process.env.GH_ID,
       clientSecret: process.env.GH_SECRET,
-      callbackURL: `http://localhost:4000${routes.githubCallback}`,
+      callbackURL: process.env.PRODUCTION
+        ? `https://thawing-bayou-05092.herokuapp.com${routes.githubCallback}`
+        : `http://localhost:4000${routes.githubCallback}`,
       scope: "user:email",
     },
     githubLoginCallback
@@ -54,3 +56,4 @@ passport.deserializeUser(User.deserializeUser());
 //Error: Failed to serialize user into session 에러
 //를 일으켜서 (function (user, done) {done(null, user);으로
 //전환함. 위튜브 #6.8 강의 시점에서는 동작을 잘함.
+//19~20항은 Javascript 조건문의 삼항연산자 응용
