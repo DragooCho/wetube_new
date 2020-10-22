@@ -127,7 +127,7 @@ export const userDetail = async (req, res) => {
     console.log(user);
     res.render("userDetail", { pageTitle: "User Detail", user });
   } catch (error) {
-    req.flash("error", "User not found");
+    req.flash("error", "유저를 찾을 수 없습니다.");
     res.redirect(routes.home);
   }
 };
