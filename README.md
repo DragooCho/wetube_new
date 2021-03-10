@@ -1,5 +1,5 @@
-# 위튜브 웹 어플리케이션
-![ex_screenshot](https://dragoocho.netlify.app/static/26036ed739b6b0074e28a8fd3f0588f9/c1b63/wetube.png)
+# 위튜브 웹 어플리케이션 [![HitCount](http://hits.dwyl.com/dragoocho/DragooCho/wetube_new.svg)](http://hits.dwyl.com/dragoocho/DragooCho/wetube_new)
+![ex_screenshot](https://github.com/DragooCho/TIL/blob/main/image/cap7.png?raw=true)
 <br />
 <br />
 ## 주요 기술 스택  
