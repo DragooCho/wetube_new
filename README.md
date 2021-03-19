@@ -3,9 +3,13 @@
 <br />
 <br />
 ## 주요 기술 스택  
-javascript, Node.js, Pug
+- javascript
+- Node.js
+- Pug 2.0.3
+
 <br />
 <br />
+
 ## 구현 배경
 - heroku에 배포해서 볼 수있는 홈페이지라 처음 접속하면 사이트가 깨어나는데 최대 30초 ~ 1분 정도의 시간이 걸립니다.
 
